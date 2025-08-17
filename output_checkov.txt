@@ -1,0 +1,889 @@
+
+(sam) adarsh@adarsh-asus:~/Adarsh/Misc/Projects/Chanchal/projects/Sreekutty/sam-app$ checkov -f template.yaml
+2025-07-05 12:03:07,907 [MainThread  ] [WARNI]  /usr/lib/python3/dist-packages/paramiko/pkey.py:82: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  "cipher": algorithms.TripleDES,
+
+2025-07-05 12:03:07,918 [MainThread  ] [WARNI]  /usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.Blowfish and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 45.0.0.
+  "class": algorithms.Blowfish,
+
+2025-07-05 12:03:07,918 [MainThread  ] [WARNI]  /usr/lib/python3/dist-packages/paramiko/transport.py:261: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  "class": algorithms.TripleDES,
+
+[ kubernetes framework ]: 100%|████████████████████|[1/1], Current File Scanned=template.yaml
+[ cloudformation framework ]: 100%|████████████████████|[1/1], Current File Scanned=/template.yaml
+[ secrets framework ]: 100%|████████████████████|[1/1], Current File Scanned=template.yaml
+
+       _               _
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V /
+  \___|_| |_|\___|\___|_|\_\___/ \_/
+
+By Prisma Cloud | version: 3.2.447 
+
+cloudformation scan results:
+
+Passed checks: 23, Failed checks: 43, Skipped checks: 0
+
+Check: CKV_AWS_363: "Ensure Lambda Runtime is not deprecated"
+        PASSED for resource: AWS::Serverless::Function.HelloWorldFunction
+        File: /template.yaml:16-37
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-363
+Check: CKV_AWS_173: "Check encryption settings for Lambda environment variable"
+        PASSED for resource: AWS::Serverless::Function.HelloWorldFunction
+        File: /template.yaml:16-37
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-serverless-policies/bc-aws-serverless-5
+Check: CKV_AWS_45: "Ensure no hard-coded secrets exist in Lambda environment"
+        PASSED for resource: AWS::Serverless::Function.HelloWorldFunction
+        File: /template.yaml:16-37
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-3
+Check: CKV_AWS_363: "Ensure Lambda Runtime is not deprecated"
+        PASSED for resource: AWS::Serverless::Function.BadIAMLambda
+        File: /template.yaml:43-64
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-363
+Check: CKV_AWS_45: "Ensure no hard-coded secrets exist in Lambda environment"
+        PASSED for resource: AWS::Serverless::Function.BadIAMLambda
+        File: /template.yaml:43-64
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-3
+Check: CKV_AWS_19: "Ensure the S3 bucket has server-side-encryption enabled"
+        PASSED for resource: AWS::S3::Bucket.PublicS3Bucket
+        File: /template.yaml:70-78
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-14-data-encrypted-at-rest
+Check: CKV_AWS_57: "Ensure the S3 bucket does not allow WRITE permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.PublicS3Bucket
+        File: /template.yaml:70-78
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-2-acl-write-permissions-everyone
+Check: CKV_AWS_20: "Ensure the S3 bucket does not allow READ permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.PublicS3Bucket
+        File: /template.yaml:70-78
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-1-acl-read-permissions-everyone
+Check: CKV_AWS_19: "Ensure the S3 bucket has server-side-encryption enabled"
+        PASSED for resource: AWS::S3::Bucket.UnencryptedS3Bucket
+        File: /template.yaml:96-99
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-14-data-encrypted-at-rest
+Check: CKV_AWS_57: "Ensure the S3 bucket does not allow WRITE permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.UnencryptedS3Bucket
+        File: /template.yaml:96-99
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-2-acl-write-permissions-everyone
+Check: CKV_AWS_20: "Ensure the S3 bucket does not allow READ permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.UnencryptedS3Bucket
+        File: /template.yaml:96-99
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-1-acl-read-permissions-everyone
+Check: CKV_AWS_19: "Ensure the S3 bucket has server-side-encryption enabled"
+        PASSED for resource: AWS::S3::Bucket.UnversionedS3Bucket
+        File: /template.yaml:106-111
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-14-data-encrypted-at-rest
+Check: CKV_AWS_57: "Ensure the S3 bucket does not allow WRITE permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.UnversionedS3Bucket
+        File: /template.yaml:106-111
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-2-acl-write-permissions-everyone
+Check: CKV_AWS_20: "Ensure the S3 bucket does not allow READ permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.UnversionedS3Bucket
+        File: /template.yaml:106-111
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-1-acl-read-permissions-everyone
+Check: CKV_AWS_363: "Ensure Lambda Runtime is not deprecated"
+        PASSED for resource: AWS::Serverless::Function.LambdaWithoutAuditLogging
+        File: /template.yaml:124-136
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-363
+Check: CKV_AWS_173: "Check encryption settings for Lambda environment variable"
+        PASSED for resource: AWS::Serverless::Function.LambdaWithoutAuditLogging
+        File: /template.yaml:124-136
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-serverless-policies/bc-aws-serverless-5
+Check: CKV_AWS_45: "Ensure no hard-coded secrets exist in Lambda environment"
+        PASSED for resource: AWS::Serverless::Function.LambdaWithoutAuditLogging
+        File: /template.yaml:124-136
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-3
+Check: CKV_AWS_363: "Ensure Lambda Runtime is not deprecated"
+        PASSED for resource: AWS::Serverless::Function.VulnerableLambda
+        File: /template.yaml:142-156
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-363
+Check: CKV_AWS_45: "Ensure no hard-coded secrets exist in Lambda environment"
+        PASSED for resource: AWS::Serverless::Function.VulnerableLambda
+        File: /template.yaml:142-156
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-3
+Check: CKV_AWS_260: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80"
+        PASSED for resource: AWS::EC2::SecurityGroup.OverlyPermissiveSecurityGroup
+        File: /template.yaml:176-191
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-groups-do-not-allow-ingress-from-00000-to-port-80
+Check: CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+        PASSED for resource: AWS::EC2::SecurityGroup.OverlyPermissiveSecurityGroup
+        File: /template.yaml:176-191
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-2
+Check: CKV_AWS_66: "Ensure that CloudWatch Log Group specifies retention days"
+        PASSED for resource: AWS::Logs::LogGroup.UnencryptedLogGroup
+        File: /template.yaml:232-236
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/logging-13
+Check: CKV2_AWS_69: "Ensure AWS RDS database instance configured with encryption in transit"
+        PASSED for resource: AWS::RDS::DBInstance.UnencryptedRDS
+        File: /template.yaml:212-226
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/bc-aws-2-69
+Check: CKV_AWS_117: "Ensure that AWS Lambda function is configured inside a VPC"
+        FAILED for resource: AWS::Serverless::Function.HelloWorldFunction
+        File: /template.yaml:16-37
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1
+
+                16 |   HelloWorldFunction:
+                17 |     Type: AWS::Serverless::Function
+                18 |     Properties:
+                19 |       CodeUri: vulnerable-app/
+                20 |       Handler: app.helloWorldHandler
+                21 |       Runtime: nodejs22.x
+                22 |       Architectures:
+                23 |         - x86_64
+                24 |       Events:
+                25 |         HelloWorld:
+                26 |           Type: Api
+                27 |           Properties:
+                28 |             Path: /hello
+                29 |             Method: get
+                30 |     Metadata:
+                31 |       BuildMethod: esbuild
+                32 |       BuildProperties:
+                33 |         Minify: true
+                34 |         Target: es2020
+                35 |         Sourcemap: true
+                36 |         EntryPoints:
+                37 |           - app.ts
+
+Check: CKV_AWS_115: "Ensure that AWS Lambda function is configured for function-level concurrent execution limit"
+        FAILED for resource: AWS::Serverless::Function.HelloWorldFunction
+        File: /template.yaml:16-37
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-function-level-concurrent-execution-limit
+
+                16 |   HelloWorldFunction:
+                17 |     Type: AWS::Serverless::Function
+                18 |     Properties:
+                19 |       CodeUri: vulnerable-app/
+                20 |       Handler: app.helloWorldHandler
+                21 |       Runtime: nodejs22.x
+                22 |       Architectures:
+                23 |         - x86_64
+                24 |       Events:
+                25 |         HelloWorld:
+                26 |           Type: Api
+                27 |           Properties:
+                28 |             Path: /hello
+                29 |             Method: get
+                30 |     Metadata:
+                31 |       BuildMethod: esbuild
+                32 |       BuildProperties:
+                33 |         Minify: true
+                34 |         Target: es2020
+                35 |         Sourcemap: true
+                36 |         EntryPoints:
+                37 |           - app.ts
+
+Check: CKV_AWS_116: "Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)"
+        FAILED for resource: AWS::Serverless::Function.HelloWorldFunction
+        File: /template.yaml:16-37
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-a-dead-letter-queue-dlq
+
+                16 |   HelloWorldFunction:
+                17 |     Type: AWS::Serverless::Function
+                18 |     Properties:
+                19 |       CodeUri: vulnerable-app/
+                20 |       Handler: app.helloWorldHandler
+                21 |       Runtime: nodejs22.x
+                22 |       Architectures:
+                23 |         - x86_64
+                24 |       Events:
+                25 |         HelloWorld:
+                26 |           Type: Api
+                27 |           Properties:
+                28 |             Path: /hello
+                29 |             Method: get
+                30 |     Metadata:
+                31 |       BuildMethod: esbuild
+                32 |       BuildProperties:
+                33 |         Minify: true
+                34 |         Target: es2020
+                35 |         Sourcemap: true
+                36 |         EntryPoints:
+                37 |           - app.ts
+
+Check: CKV_AWS_117: "Ensure that AWS Lambda function is configured inside a VPC"
+        FAILED for resource: AWS::Serverless::Function.BadIAMLambda
+        File: /template.yaml:43-64
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1
+
+                43 |   BadIAMLambda:
+                44 |     Type: AWS::Serverless::Function
+                45 |     Properties:
+                46 |       CodeUri: vulnerable-app/
+                47 |       Handler: app.helloWorldHandler
+                48 |       Runtime: nodejs18.x
+                49 |       Policies:
+                50 |         - Statement:
+                51 |             - Effect: Allow
+                52 |               Action: "*"
+                53 |               Resource: "*"
+                54 |       Environment:
+                55 |         Variables:
+                56 |           SSN: "123-45-6789"  # PII in env var → ❌
+                57 |           EMAIL: "patient@example.com"  # More PII → ❌
+                58 |           PASSWORD: "hardcoded123"  # Hardcoded secret → ❌
+                59 |       Events:
+                60 |         HelloBadIAM:
+                61 |           Type: Api
+                62 |           Properties:
+                63 |             Path: /bad-iam
+                64 |             Method: get
+
+Check: CKV_AWS_115: "Ensure that AWS Lambda function is configured for function-level concurrent execution limit"
+        FAILED for resource: AWS::Serverless::Function.BadIAMLambda
+        File: /template.yaml:43-64
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-function-level-concurrent-execution-limit
+
+                43 |   BadIAMLambda:
+                44 |     Type: AWS::Serverless::Function
+                45 |     Properties:
+                46 |       CodeUri: vulnerable-app/
+                47 |       Handler: app.helloWorldHandler
+                48 |       Runtime: nodejs18.x
+                49 |       Policies:
+                50 |         - Statement:
+                51 |             - Effect: Allow
+                52 |               Action: "*"
+                53 |               Resource: "*"
+                54 |       Environment:
+                55 |         Variables:
+                56 |           SSN: "123-45-6789"  # PII in env var → ❌
+                57 |           EMAIL: "patient@example.com"  # More PII → ❌
+                58 |           PASSWORD: "hardcoded123"  # Hardcoded secret → ❌
+                59 |       Events:
+                60 |         HelloBadIAM:
+                61 |           Type: Api
+                62 |           Properties:
+                63 |             Path: /bad-iam
+                64 |             Method: get
+
+Check: CKV_AWS_173: "Check encryption settings for Lambda environment variable"
+        FAILED for resource: AWS::Serverless::Function.BadIAMLambda
+        File: /template.yaml:43-64
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-serverless-policies/bc-aws-serverless-5
+
+                43 |   BadIAMLambda:
+                44 |     Type: AWS::Serverless::Function
+                45 |     Properties:
+                46 |       CodeUri: vulnerable-app/
+                47 |       Handler: app.helloWorldHandler
+                48 |       Runtime: nodejs18.x
+                49 |       Policies:
+                50 |         - Statement:
+                51 |             - Effect: Allow
+                52 |               Action: "*"
+                53 |               Resource: "*"
+                54 |       Environment:
+                55 |         Variables:
+                56 |           SSN: "123-45-6789"  # PII in env var → ❌
+                57 |           EMAIL: "patient@example.com"  # More PII → ❌
+                58 |           PASSWORD: "hardcoded123"  # Hardcoded secret → ❌
+                59 |       Events:
+                60 |         HelloBadIAM:
+                61 |           Type: Api
+                62 |           Properties:
+                63 |             Path: /bad-iam
+                64 |             Method: get
+
+Check: CKV_AWS_116: "Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)"
+        FAILED for resource: AWS::Serverless::Function.BadIAMLambda
+        File: /template.yaml:43-64
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-a-dead-letter-queue-dlq
+
+                43 |   BadIAMLambda:
+                44 |     Type: AWS::Serverless::Function
+                45 |     Properties:
+                46 |       CodeUri: vulnerable-app/
+                47 |       Handler: app.helloWorldHandler
+                48 |       Runtime: nodejs18.x
+                49 |       Policies:
+                50 |         - Statement:
+                51 |             - Effect: Allow
+                52 |               Action: "*"
+                53 |               Resource: "*"
+                54 |       Environment:
+                55 |         Variables:
+                56 |           SSN: "123-45-6789"  # PII in env var → ❌
+                57 |           EMAIL: "patient@example.com"  # More PII → ❌
+                58 |           PASSWORD: "hardcoded123"  # Hardcoded secret → ❌
+                59 |       Events:
+                60 |         HelloBadIAM:
+                61 |           Type: Api
+                62 |           Properties:
+                63 |             Path: /bad-iam
+                64 |             Method: get
+
+Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+        FAILED for resource: AWS::S3::Bucket.PublicS3Bucket
+        File: /template.yaml:70-78
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-21
+
+                70 |   PublicS3Bucket:
+                71 |     Type: AWS::S3::Bucket
+                72 |     Properties:
+                73 |       BucketName: !Sub "public-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+                74 |       PublicAccessBlockConfiguration:
+                75 |         BlockPublicAcls: false
+                76 |         BlockPublicPolicy: false
+                77 |         IgnorePublicAcls: false
+                78 |         RestrictPublicBuckets: false
+
+Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+        FAILED for resource: AWS::S3::Bucket.PublicS3Bucket
+        File: /template.yaml:70-78
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-20
+
+                70 |   PublicS3Bucket:
+                71 |     Type: AWS::S3::Bucket
+                72 |     Properties:
+                73 |       BucketName: !Sub "public-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+                74 |       PublicAccessBlockConfiguration:
+                75 |         BlockPublicAcls: false
+                76 |         BlockPublicPolicy: false
+                77 |         IgnorePublicAcls: false
+                78 |         RestrictPublicBuckets: false
+
+Check: CKV_AWS_56: "Ensure S3 bucket has RestrictPublicBuckets enabled"
+        FAILED for resource: AWS::S3::Bucket.PublicS3Bucket
+        File: /template.yaml:70-78
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-22
+
+                70 |   PublicS3Bucket:
+                71 |     Type: AWS::S3::Bucket
+                72 |     Properties:
+                73 |       BucketName: !Sub "public-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+                74 |       PublicAccessBlockConfiguration:
+                75 |         BlockPublicAcls: false
+                76 |         BlockPublicPolicy: false
+                77 |         IgnorePublicAcls: false
+                78 |         RestrictPublicBuckets: false
+
+Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+        FAILED for resource: AWS::S3::Bucket.PublicS3Bucket
+        File: /template.yaml:70-78
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging
+
+                70 |   PublicS3Bucket:
+                71 |     Type: AWS::S3::Bucket
+                72 |     Properties:
+                73 |       BucketName: !Sub "public-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+                74 |       PublicAccessBlockConfiguration:
+                75 |         BlockPublicAcls: false
+                76 |         BlockPublicPolicy: false
+                77 |         IgnorePublicAcls: false
+                78 |         RestrictPublicBuckets: false
+
+Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLs enabled"
+        FAILED for resource: AWS::S3::Bucket.PublicS3Bucket
+        File: /template.yaml:70-78
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-19
+
+                70 |   PublicS3Bucket:
+                71 |     Type: AWS::S3::Bucket
+                72 |     Properties:
+                73 |       BucketName: !Sub "public-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+                74 |       PublicAccessBlockConfiguration:
+                75 |         BlockPublicAcls: false
+                76 |         BlockPublicPolicy: false
+                77 |         IgnorePublicAcls: false
+                78 |         RestrictPublicBuckets: false
+
+Check: CKV_AWS_21: "Ensure the S3 bucket has versioning enabled"
+        FAILED for resource: AWS::S3::Bucket.PublicS3Bucket
+        File: /template.yaml:70-78
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning
+
+                70 |   PublicS3Bucket:
+                71 |     Type: AWS::S3::Bucket
+                72 |     Properties:
+                73 |       BucketName: !Sub "public-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+                74 |       PublicAccessBlockConfiguration:
+                75 |         BlockPublicAcls: false
+                76 |         BlockPublicPolicy: false
+                77 |         IgnorePublicAcls: false
+                78 |         RestrictPublicBuckets: false
+
+Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+        FAILED for resource: AWS::S3::Bucket.UnencryptedS3Bucket
+        File: /template.yaml:96-99
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-21
+
+                96 |   UnencryptedS3Bucket:
+                97 |     Type: AWS::S3::Bucket
+                98 |     Properties:
+                99 |       BucketName: !Sub "unencrypted-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+
+Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+        FAILED for resource: AWS::S3::Bucket.UnencryptedS3Bucket
+        File: /template.yaml:96-99
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-20
+
+                96 |   UnencryptedS3Bucket:
+                97 |     Type: AWS::S3::Bucket
+                98 |     Properties:
+                99 |       BucketName: !Sub "unencrypted-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+
+Check: CKV_AWS_56: "Ensure S3 bucket has RestrictPublicBuckets enabled"
+        FAILED for resource: AWS::S3::Bucket.UnencryptedS3Bucket
+        File: /template.yaml:96-99
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-22
+
+                96 |   UnencryptedS3Bucket:
+                97 |     Type: AWS::S3::Bucket
+                98 |     Properties:
+                99 |       BucketName: !Sub "unencrypted-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+
+Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+        FAILED for resource: AWS::S3::Bucket.UnencryptedS3Bucket
+        File: /template.yaml:96-99
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging
+
+                96 |   UnencryptedS3Bucket:
+                97 |     Type: AWS::S3::Bucket
+                98 |     Properties:
+                99 |       BucketName: !Sub "unencrypted-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+
+Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLs enabled"
+        FAILED for resource: AWS::S3::Bucket.UnencryptedS3Bucket
+        File: /template.yaml:96-99
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-19
+
+                96 |   UnencryptedS3Bucket:
+                97 |     Type: AWS::S3::Bucket
+                98 |     Properties:
+                99 |       BucketName: !Sub "unencrypted-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+
+Check: CKV_AWS_21: "Ensure the S3 bucket has versioning enabled"
+        FAILED for resource: AWS::S3::Bucket.UnencryptedS3Bucket
+        File: /template.yaml:96-99
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning
+
+                96 |   UnencryptedS3Bucket:
+                97 |     Type: AWS::S3::Bucket
+                98 |     Properties:
+                99 |       BucketName: !Sub "unencrypted-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+
+Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+        FAILED for resource: AWS::S3::Bucket.UnversionedS3Bucket
+        File: /template.yaml:106-111
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-21
+
+                106 |   UnversionedS3Bucket:
+                107 |     Type: AWS::S3::Bucket
+                108 |     Properties:
+                109 |       BucketName: !Sub "unversioned-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+                110 |       VersioningConfiguration:
+                111 |         Status: Suspended  # ❌ Versioning disabled
+
+Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+        FAILED for resource: AWS::S3::Bucket.UnversionedS3Bucket
+        File: /template.yaml:106-111
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-20
+
+                106 |   UnversionedS3Bucket:
+                107 |     Type: AWS::S3::Bucket
+                108 |     Properties:
+                109 |       BucketName: !Sub "unversioned-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+                110 |       VersioningConfiguration:
+                111 |         Status: Suspended  # ❌ Versioning disabled
+
+Check: CKV_AWS_56: "Ensure S3 bucket has RestrictPublicBuckets enabled"
+        FAILED for resource: AWS::S3::Bucket.UnversionedS3Bucket
+        File: /template.yaml:106-111
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-22
+
+                106 |   UnversionedS3Bucket:
+                107 |     Type: AWS::S3::Bucket
+                108 |     Properties:
+                109 |       BucketName: !Sub "unversioned-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+                110 |       VersioningConfiguration:
+                111 |         Status: Suspended  # ❌ Versioning disabled
+
+Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+        FAILED for resource: AWS::S3::Bucket.UnversionedS3Bucket
+        File: /template.yaml:106-111
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging
+
+                106 |   UnversionedS3Bucket:
+                107 |     Type: AWS::S3::Bucket
+                108 |     Properties:
+                109 |       BucketName: !Sub "unversioned-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+                110 |       VersioningConfiguration:
+                111 |         Status: Suspended  # ❌ Versioning disabled
+
+Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLs enabled"
+        FAILED for resource: AWS::S3::Bucket.UnversionedS3Bucket
+        File: /template.yaml:106-111
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-19
+
+                106 |   UnversionedS3Bucket:
+                107 |     Type: AWS::S3::Bucket
+                108 |     Properties:
+                109 |       BucketName: !Sub "unversioned-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+                110 |       VersioningConfiguration:
+                111 |         Status: Suspended  # ❌ Versioning disabled
+
+Check: CKV_AWS_21: "Ensure the S3 bucket has versioning enabled"
+        FAILED for resource: AWS::S3::Bucket.UnversionedS3Bucket
+        File: /template.yaml:106-111
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning
+
+                106 |   UnversionedS3Bucket:
+                107 |     Type: AWS::S3::Bucket
+                108 |     Properties:
+                109 |       BucketName: !Sub "unversioned-demo-bucket-${AWS::AccountId}-${AWS::Region}"
+                110 |       VersioningConfiguration:
+                111 |         Status: Suspended  # ❌ Versioning disabled
+
+Check: CKV_AWS_73: "Ensure API Gateway has X-Ray Tracing enabled"
+        FAILED for resource: AWS::Serverless::Api.ApiWithoutLogging
+        File: /template.yaml:117-121
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/logging-15
+
+                117 |   ApiWithoutLogging:
+                118 |     Type: AWS::Serverless::Api
+                119 |     Properties:
+                120 |       Name: NoLoggingAPI
+                121 |       StageName: prod
+
+Check: CKV_AWS_76: "Ensure API Gateway has Access Logging enabled"
+        FAILED for resource: AWS::Serverless::Api.ApiWithoutLogging
+        File: /template.yaml:117-121
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/logging-17
+
+                117 |   ApiWithoutLogging:
+                118 |     Type: AWS::Serverless::Api
+                119 |     Properties:
+                120 |       Name: NoLoggingAPI
+                121 |       StageName: prod
+
+Check: CKV_AWS_120: "Ensure API Gateway caching is enabled"
+        FAILED for resource: AWS::Serverless::Api.ApiWithoutLogging
+        File: /template.yaml:117-121
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-api-gateway-caching-is-enabled
+
+                117 |   ApiWithoutLogging:
+                118 |     Type: AWS::Serverless::Api
+                119 |     Properties:
+                120 |       Name: NoLoggingAPI
+                121 |       StageName: prod
+
+Check: CKV_AWS_117: "Ensure that AWS Lambda function is configured inside a VPC"
+        FAILED for resource: AWS::Serverless::Function.LambdaWithoutAuditLogging
+        File: /template.yaml:124-136
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1
+
+                124 |   LambdaWithoutAuditLogging:
+                125 |     Type: AWS::Serverless::Function
+                126 |     Properties:
+                127 |       CodeUri: vulnerable-app/
+                128 |       Handler: app.helloWorldHandler
+                129 |       Runtime: nodejs18.x
+                130 |       Events:
+                131 |         NoLogEvent:
+                132 |           Type: Api
+                133 |           Properties:
+                134 |             Path: /nolog
+                135 |             Method: get
+                136 |             RestApiId: !Ref ApiWithoutLogging
+
+Check: CKV_AWS_115: "Ensure that AWS Lambda function is configured for function-level concurrent execution limit"
+        FAILED for resource: AWS::Serverless::Function.LambdaWithoutAuditLogging
+        File: /template.yaml:124-136
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-function-level-concurrent-execution-limit
+
+                124 |   LambdaWithoutAuditLogging:
+                125 |     Type: AWS::Serverless::Function
+                126 |     Properties:
+                127 |       CodeUri: vulnerable-app/
+                128 |       Handler: app.helloWorldHandler
+                129 |       Runtime: nodejs18.x
+                130 |       Events:
+                131 |         NoLogEvent:
+                132 |           Type: Api
+                133 |           Properties:
+                134 |             Path: /nolog
+                135 |             Method: get
+                136 |             RestApiId: !Ref ApiWithoutLogging
+
+Check: CKV_AWS_116: "Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)"
+        FAILED for resource: AWS::Serverless::Function.LambdaWithoutAuditLogging
+        File: /template.yaml:124-136
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-a-dead-letter-queue-dlq
+
+                124 |   LambdaWithoutAuditLogging:
+                125 |     Type: AWS::Serverless::Function
+                126 |     Properties:
+                127 |       CodeUri: vulnerable-app/
+                128 |       Handler: app.helloWorldHandler
+                129 |       Runtime: nodejs18.x
+                130 |       Events:
+                131 |         NoLogEvent:
+                132 |           Type: Api
+                133 |           Properties:
+                134 |             Path: /nolog
+                135 |             Method: get
+                136 |             RestApiId: !Ref ApiWithoutLogging
+
+Check: CKV_AWS_117: "Ensure that AWS Lambda function is configured inside a VPC"
+        FAILED for resource: AWS::Serverless::Function.VulnerableLambda
+        File: /template.yaml:142-156
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1
+
+                142 |   VulnerableLambda:
+                143 |     Type: AWS::Serverless::Function
+                144 |     Properties:
+                145 |       CodeUri: vulnerable-app/
+                146 |       Handler: vulnerable.handler
+                147 |       Runtime: nodejs18.x
+                148 |       Environment:
+                149 |         Variables:
+                150 |           DB_PASSWORD: "admin123"  # Another hardcoded secret ❌
+                151 |       Events:
+                152 |         VulnerableApi:
+                153 |           Type: Api
+                154 |           Properties:
+                155 |             Path: /vulnerable
+                156 |             Method: post
+
+Check: CKV_AWS_115: "Ensure that AWS Lambda function is configured for function-level concurrent execution limit"
+        FAILED for resource: AWS::Serverless::Function.VulnerableLambda
+        File: /template.yaml:142-156
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-function-level-concurrent-execution-limit
+
+                142 |   VulnerableLambda:
+                143 |     Type: AWS::Serverless::Function
+                144 |     Properties:
+                145 |       CodeUri: vulnerable-app/
+                146 |       Handler: vulnerable.handler
+                147 |       Runtime: nodejs18.x
+                148 |       Environment:
+                149 |         Variables:
+                150 |           DB_PASSWORD: "admin123"  # Another hardcoded secret ❌
+                151 |       Events:
+                152 |         VulnerableApi:
+                153 |           Type: Api
+                154 |           Properties:
+                155 |             Path: /vulnerable
+                156 |             Method: post
+
+Check: CKV_AWS_173: "Check encryption settings for Lambda environment variable"
+        FAILED for resource: AWS::Serverless::Function.VulnerableLambda
+        File: /template.yaml:142-156
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-serverless-policies/bc-aws-serverless-5
+
+                142 |   VulnerableLambda:
+                143 |     Type: AWS::Serverless::Function
+                144 |     Properties:
+                145 |       CodeUri: vulnerable-app/
+                146 |       Handler: vulnerable.handler
+                147 |       Runtime: nodejs18.x
+                148 |       Environment:
+                149 |         Variables:
+                150 |           DB_PASSWORD: "admin123"  # Another hardcoded secret ❌
+                151 |       Events:
+                152 |         VulnerableApi:
+                153 |           Type: Api
+                154 |           Properties:
+                155 |             Path: /vulnerable
+                156 |             Method: post
+
+Check: CKV_AWS_116: "Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)"
+        FAILED for resource: AWS::Serverless::Function.VulnerableLambda
+        File: /template.yaml:142-156
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-a-dead-letter-queue-dlq
+
+                142 |   VulnerableLambda:
+                143 |     Type: AWS::Serverless::Function
+                144 |     Properties:
+                145 |       CodeUri: vulnerable-app/
+                146 |       Handler: vulnerable.handler
+                147 |       Runtime: nodejs18.x
+                148 |       Environment:
+                149 |         Variables:
+                150 |           DB_PASSWORD: "admin123"  # Another hardcoded secret ❌
+                151 |       Events:
+                152 |         VulnerableApi:
+                153 |           Type: Api
+                154 |           Properties:
+                155 |             Path: /vulnerable
+                156 |             Method: post
+
+Check: CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+        FAILED for resource: AWS::EC2::SecurityGroup.OverlyPermissiveSecurityGroup
+        File: /template.yaml:176-191
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-1-port-security
+
+                176 |   OverlyPermissiveSecurityGroup:
+                177 |     Type: AWS::EC2::SecurityGroup
+                178 |     Properties:
+                179 |       GroupDescription: Security group with overly broad access
+                180 |       VpcId: !Ref VPC
+                181 |       SecurityGroupIngress:
+                182 |         - IpProtocol: tcp
+                183 |           FromPort: 22
+                184 |           ToPort: 22
+                185 |           CidrIp: 0.0.0.0/0  # ❌ SSH open to the world
+                186 |         - IpProtocol: tcp
+                187 |           FromPort: 3306
+                188 |           ToPort: 3306
+                189 |           CidrIp: 0.0.0.0/0  # ❌ Database port open to the world
+                190 |         - IpProtocol: -1
+                191 |           CidrIp: 0.0.0.0/0  # ❌ All traffic allowed
+
+Check: CKV_AWS_23: "Ensure every security groups rule has a description"
+        FAILED for resource: AWS::EC2::SecurityGroup.OverlyPermissiveSecurityGroup
+        File: /template.yaml:176-191
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-31
+
+                176 |   OverlyPermissiveSecurityGroup:
+                177 |     Type: AWS::EC2::SecurityGroup
+                178 |     Properties:
+                179 |       GroupDescription: Security group with overly broad access
+                180 |       VpcId: !Ref VPC
+                181 |       SecurityGroupIngress:
+                182 |         - IpProtocol: tcp
+                183 |           FromPort: 22
+                184 |           ToPort: 22
+                185 |           CidrIp: 0.0.0.0/0  # ❌ SSH open to the world
+                186 |         - IpProtocol: tcp
+                187 |           FromPort: 3306
+                188 |           ToPort: 3306
+                189 |           CidrIp: 0.0.0.0/0  # ❌ Database port open to the world
+                190 |         - IpProtocol: -1
+                191 |           CidrIp: 0.0.0.0/0  # ❌ All traffic allowed
+
+Check: CKV_AWS_118: "Ensure that enhanced monitoring is enabled for Amazon RDS instances"
+        FAILED for resource: AWS::RDS::DBInstance.UnencryptedRDS
+        File: /template.yaml:212-226
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/ensure-that-enhanced-monitoring-is-enabled-for-amazon-rds-instances
+
+                212 |   UnencryptedRDS:
+                213 |     Type: AWS::RDS::DBInstance
+                214 |     Properties:
+                215 |       DBInstanceIdentifier: unencrypted-db
+                216 |       DBInstanceClass: db.t3.micro
+                217 |       Engine: mysql
+                218 |       MasterUsername: admin
+                219 |       MasterUserPassword: "hardcoded-password-123"  # ❌ Hardcoded password
+                220 |       AllocatedStorage: 20
+                221 |       StorageEncrypted: false  # ❌ No encryption
+                222 |       PubliclyAccessible: true  # ❌ Publicly accessible
+                223 |       VPCSecurityGroups:
+                224 |         - !Ref OverlyPermissiveSecurityGroup
+                225 |       DBSubnetGroupName: !Ref DBSubnetGroup
+                226 |       BackupRetentionPeriod: 0  # ❌ No backups
+
+Check: CKV_AWS_161: "Ensure RDS database has IAM authentication enabled"
+        FAILED for resource: AWS::RDS::DBInstance.UnencryptedRDS
+        File: /template.yaml:212-226
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-rds-database-has-iam-authentication-enabled
+
+                212 |   UnencryptedRDS:
+                213 |     Type: AWS::RDS::DBInstance
+                214 |     Properties:
+                215 |       DBInstanceIdentifier: unencrypted-db
+                216 |       DBInstanceClass: db.t3.micro
+                217 |       Engine: mysql
+                218 |       MasterUsername: admin
+                219 |       MasterUserPassword: "hardcoded-password-123"  # ❌ Hardcoded password
+                220 |       AllocatedStorage: 20
+                221 |       StorageEncrypted: false  # ❌ No encryption
+                222 |       PubliclyAccessible: true  # ❌ Publicly accessible
+                223 |       VPCSecurityGroups:
+                224 |         - !Ref OverlyPermissiveSecurityGroup
+                225 |       DBSubnetGroupName: !Ref DBSubnetGroup
+                226 |       BackupRetentionPeriod: 0  # ❌ No backups
+
+Check: CKV_AWS_157: "Ensure that RDS instances have Multi-AZ enabled"
+        FAILED for resource: AWS::RDS::DBInstance.UnencryptedRDS
+        File: /template.yaml:212-226
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-73
+
+                212 |   UnencryptedRDS:
+                213 |     Type: AWS::RDS::DBInstance
+                214 |     Properties:
+                215 |       DBInstanceIdentifier: unencrypted-db
+                216 |       DBInstanceClass: db.t3.micro
+                217 |       Engine: mysql
+                218 |       MasterUsername: admin
+                219 |       MasterUserPassword: "hardcoded-password-123"  # ❌ Hardcoded password
+                220 |       AllocatedStorage: 20
+                221 |       StorageEncrypted: false  # ❌ No encryption
+                222 |       PubliclyAccessible: true  # ❌ Publicly accessible
+                223 |       VPCSecurityGroups:
+                224 |         - !Ref OverlyPermissiveSecurityGroup
+                225 |       DBSubnetGroupName: !Ref DBSubnetGroup
+                226 |       BackupRetentionPeriod: 0  # ❌ No backups
+
+Check: CKV_AWS_17: "Ensure all data stored in RDS is not publicly accessible"
+        FAILED for resource: AWS::RDS::DBInstance.UnencryptedRDS
+        File: /template.yaml:212-226
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/public-policies/public-2
+
+                212 |   UnencryptedRDS:
+                213 |     Type: AWS::RDS::DBInstance
+                214 |     Properties:
+                215 |       DBInstanceIdentifier: unencrypted-db
+                216 |       DBInstanceClass: db.t3.micro
+                217 |       Engine: mysql
+                218 |       MasterUsername: admin
+                219 |       MasterUserPassword: "hardcoded-password-123"  # ❌ Hardcoded password
+                220 |       AllocatedStorage: 20
+                221 |       StorageEncrypted: false  # ❌ No encryption
+                222 |       PubliclyAccessible: true  # ❌ Publicly accessible
+                223 |       VPCSecurityGroups:
+                224 |         - !Ref OverlyPermissiveSecurityGroup
+                225 |       DBSubnetGroupName: !Ref DBSubnetGroup
+                226 |       BackupRetentionPeriod: 0  # ❌ No backups
+
+Check: CKV_AWS_16: "Ensure all data stored in the RDS is securely encrypted at rest"
+        FAILED for resource: AWS::RDS::DBInstance.UnencryptedRDS
+        File: /template.yaml:212-226
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-4
+
+                212 |   UnencryptedRDS:
+                213 |     Type: AWS::RDS::DBInstance
+                214 |     Properties:
+                215 |       DBInstanceIdentifier: unencrypted-db
+                216 |       DBInstanceClass: db.t3.micro
+                217 |       Engine: mysql
+                218 |       MasterUsername: admin
+                219 |       MasterUserPassword: "hardcoded-password-123"  # ❌ Hardcoded password
+                220 |       AllocatedStorage: 20
+                221 |       StorageEncrypted: false  # ❌ No encryption
+                222 |       PubliclyAccessible: true  # ❌ Publicly accessible
+                223 |       VPCSecurityGroups:
+                224 |         - !Ref OverlyPermissiveSecurityGroup
+                225 |       DBSubnetGroupName: !Ref DBSubnetGroup
+                226 |       BackupRetentionPeriod: 0  # ❌ No backups
+
+Check: CKV_AWS_158: "Ensure that CloudWatch Log Group is encrypted by KMS"
+        FAILED for resource: AWS::Logs::LogGroup.UnencryptedLogGroup
+        File: /template.yaml:232-236
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-cloudwatch-log-group-is-encrypted-by-kms
+
+                232 |   UnencryptedLogGroup:
+                233 |     Type: AWS::Logs::LogGroup
+                234 |     Properties:
+                235 |       LogGroupName: /aws/lambda/unencrypted-logs
+                236 |       RetentionInDays: 1  # ❌ Very short retention
+
+secrets scan results:
+
+Passed checks: 0, Failed checks: 2, Skipped checks: 0
+
+Check: CKV_SECRET_6: "Base64 High Entropy String"
+        FAILED for resource: a6c4db13d228623406a2d868e2fded86b19568ef
+        File: /template.yaml:58-59
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/secrets-policies/secrets-policy-index/git-secrets-6
+
+                58 |           PASSWORD: "har**********"  # Hardcoded secret → ❌
+
+Check: CKV_SECRET_6: "Base64 High Entropy String"
+        FAILED for resource: 5b528611db45273c740ac302f6f40566809cf9f6
+        File: /template.yaml:219-220
+        Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/secrets-policies/secrets-policy-index/git-secrets-6
+
+                219 |       MasterUserPassword: "hardc**********"  # ❌ Hardcoded password
+

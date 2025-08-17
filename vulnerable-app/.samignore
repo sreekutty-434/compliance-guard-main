@@ -1,0 +1,44 @@
+# Ignore node_modules in the root (SAM will handle dependencies)
+node_modules/
+
+# Ignore development files
+.git/
+.gitignore
+.DS_Store
+*.log
+*.tmp
+.env*
+
+# Ignore test files
+test/
+tests/
+*.test.js
+*.spec.js
+coverage/
+
+# Ignore documentation
+README.md
+docs/
+*.md
+
+# Ignore CI/CD files
+.github/
+.jenkins/
+Jenkinsfile
+.travis.yml
+.circleci/
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore build artifacts
+dist/
+build/
+.nyc_output/
+
+# Ignore package-lock.json (use npm ci in build process)
+package-lock.json
+yarn.lock
