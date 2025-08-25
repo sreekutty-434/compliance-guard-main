@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Pull main') {
             steps {
-                git branch: 'main', url: 'https://github.com/adarshvs6665/sreekutty-compliance-guard.git'
+                git branch: 'main', url: 'https://github.com/sreekutty-434/compliance-guard-main.git'
             }
         }
         stage('Install dependencies') {
